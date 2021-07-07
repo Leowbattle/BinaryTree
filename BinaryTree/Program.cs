@@ -282,6 +282,27 @@ namespace BinaryTree
 				PrintSubtree(node.Right, true, indent);
 			}
 		}
+
+		public void PrintInOrder()
+		{
+			if (Root != null)
+			{
+				PrintInOrder(Root);
+			}
+		}
+
+		public void PrintInOrder(Node node)
+		{
+			if (node.Left != null)
+			{
+				PrintInOrder(node.Left);
+			}
+			Console.WriteLine(node.Data);
+			if (node.Right != null)
+			{
+				PrintInOrder(node.Right);
+			}
+		}
 	}
 
 	class Program
@@ -385,6 +406,10 @@ namespace BinaryTree
 					}
 
 					bt.PrintTree();
+				}),
+				new InteractiveAction("in-order", () =>
+				{
+					bt.PrintInOrder();
 				})
 			};
 
